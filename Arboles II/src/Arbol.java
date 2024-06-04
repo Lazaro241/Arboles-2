@@ -43,7 +43,7 @@ public class Arbol {
     }
     public Nodo buscarYEliminarNodo(Nodo root, int valor) {
         if (root == null){
-            //Caso de árbol vacio o nodo no encontrado, devolvemos la misma raiz vacia
+            //Caso nodo no encontrado, devolvemos la misma raiz vacia
             return root;
         }
         // Recorremos el árbol para encontrar el nodo a eliminar
@@ -89,7 +89,7 @@ public class Arbol {
             }
         }
         //luego para cerrar la recursividad con una eliminación exitosa devolvemos el actual con sus cambios hechos, o si no se encontró devolveremos al nodo sin cambios
-        return raiz;
+        return root;
     }
     public int getValorMinimoMayores(Nodo root) {
         //aqui se pasa por parametro a el hijo derecho del nodo que se quiere eliminar (o mejor dicho reemplazar), y se busca por la izquierda el más pequeño del subarbol que tiene como raiz el hijo derecho del nodo a eliminar
@@ -110,15 +110,15 @@ public class Arbol {
     }
     public void recorrerInOrden(Nodo root){
         if(root!=null){
-            recorrerPreOrden(root.getIzq());
+            recorrerInOrden(root.getIzq());
             System.out.print("- " + root.getValor() + " ");
-            recorrerPreOrden(root.getDer());
+            recorrerInOrden(root.getDer());
         }
     }
     public void recorrerPostOrden(Nodo root){
         if(root!=null){
-            recorrerPreOrden(root.getIzq());
-            recorrerPreOrden(root.getDer());
+            recorrerPostOrden(root.getIzq());
+            recorrerPostOrden(root.getDer());
             System.out.print("- " + root.getValor() + " ");
         }
     }
